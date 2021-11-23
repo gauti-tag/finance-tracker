@@ -110,6 +110,8 @@ GEM
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     ffi (1.15.4)
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7)
     globalid (0.5.2)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -202,7 +204,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.0.3)
+    selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
@@ -211,7 +213,7 @@ GEM
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.4.0)
+    sprockets-rails (3.4.1)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
@@ -255,6 +257,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   devise-bootstrap-views (~> 1.0)
+  font-awesome-rails
   iex-ruby-client
   jbuilder (~> 2.7)
   listen (~> 3.3)
