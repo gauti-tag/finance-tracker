@@ -1,6 +1,6 @@
 class UserStocksController < ApplicationController
+    
     def create 
-        
         stock = Stock.check_db(params[:ticker])
         
         if stock.blank?
@@ -17,5 +17,18 @@ class UserStocksController < ApplicationController
                redirect_to my_porfolio_path
             end
             
+    end
+    
+    
+    def destroy 
+        
+        stock = Stock.find(params[:id])
+        
+        # get row from the relation table
+        user_stock = UserStock.where(user_id: current_user.id, stock: stock.id).first
+        
+        user_stock.destroy
+        flash[:notice] = "#{stock.ticker} was successfully removed form portfolio"
+        redirect_to my_porfolio_path
     end
 end
