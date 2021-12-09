@@ -52,4 +52,9 @@ class User < ApplicationRecord
          def self.matches(field_name, param)
              User.where("#{field_name} like ?", "%#{param}%")
          end
+         
+         #method to reject the current user
+         def except_current_user(users)
+             users.reject {|user| user.id == self.id}
+         end
 end
