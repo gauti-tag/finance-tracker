@@ -19,8 +19,8 @@ class UsersController < ApplicationController
          end
        else
          respond_to do |format|
-           flash.now[:alert] = "Can not find user"
-           format.js {render partial: 'users/friend'}
+           flash.now[:alert] = "Can not find friend"
+           format.js {render partial: 'users/friend_result'}
          end
       end
       
