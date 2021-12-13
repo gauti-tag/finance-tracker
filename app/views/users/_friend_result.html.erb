@@ -12,7 +12,7 @@
        <td><strong>Name : </strong> <%= friend.full_name %> </td>
        <td><strong>Email : </strong> <%= friend.email %> </td>
        <td>
-        <strong>Actions : </strong> <%= link_to 'View Profil', '#', class: "btn btn-sm btn-success"%>
+        <strong>Actions : </strong> <%= link_to 'View Profil', user_path(friend), class: "btn btn-sm btn-success"%>
          <% if current_user.not_friend_with?(friend.id)%>
            <strong><%= link_to 'Follow friend?', friendships_path(friend: friend), class:"btn btn-sm btn-success", method: :post %></strong>
          <% else %>

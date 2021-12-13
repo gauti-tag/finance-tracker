@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def my_porfolio
+    @user = current_user
     @tracked_stocks = current_user.stocks
   end
   
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
          respond_to do |format|
            format.js { render partial: 'users/friend_result' }
          end
-       else
+      else
          respond_to do |format|
            flash.now[:alert] = "Can not find friend"
            format.js {render partial: 'users/friend_result'}
@@ -33,5 +34,12 @@ class UsersController < ApplicationController
       end
       
     end
+  end
+  
+  def show
+    #render json: {parameter: params[:id]}
+    @user = User.find(params[:id])
+    
+    @tracked_stocks = @user.stocks
   end
 end
