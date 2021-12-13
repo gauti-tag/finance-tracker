@@ -31,7 +31,7 @@ class User < ApplicationRecord
          end
          #Filter friends for any given string according to the User table schema
          def self.search(param)
-             param.strip
+             param.strip # this method 'strip' is to remove spaces
              to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
              return nil unless to_send_back
              to_send_back
@@ -56,5 +56,10 @@ class User < ApplicationRecord
          #method to reject the current user
          def except_current_user(users)
              users.reject {|user| user.id == self.id}
+         end
+         
+         # method to check if there friends
+         def not_friend_with?(id_of_friend)
+             !self.friends.where(id: id_of_friend).exists?
          end
 end
